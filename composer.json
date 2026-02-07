@@ -1,16 +1,33 @@
 {
     "name": "eloquage/docker-php",
-    "description": ":package_description",
+    "description": "Docker Engine API client for Laravel with a built-in Livewire management UI. Connect via Unix socket, TCP, or TLS. Manage containers, images, networks, volumes, and Swarm from code or the included Flux UI.",
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
+            "name": "Miguel Enes",
+            "email": "me@miguelenes.com",
+            "homepage": "https://miguelenes.com"
         }
     ],
     "homepage": "https://github.com/eloquage/docker-php",
-    "keywords": ["Laravel", "DockerPhp"],
+    "readme": "readme.md",
+    "keywords": [
+        "laravel",
+        "docker",
+        "docker-api",
+        "docker-engine",
+        "saloon",
+        "livewire",
+        "flux",
+        "containers",
+        "docker-swarm",
+        "api-client"
+    ],
+    "support": {
+        "issues": "https://github.com/eloquage/docker-php/issues",
+        "source": "https://github.com/eloquage/docker-php",
+        "docs": "https://eloquage.github.io/docker-php"
+    },
     "require": {
         "illuminate/support": "^12",
         "saloonphp/cache-plugin": "^3.0",

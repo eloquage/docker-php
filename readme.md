@@ -120,24 +120,6 @@ vendor/bin/pest --compact
 
 Tests use Saloon’s MockClient; no Docker daemon is required. See [Testing](docs/advanced/testing.md) in the docs.
 
----
-
-## Architecture
-
-```mermaid
-flowchart LR
-  Facade[DockerPhp facade]
-  Service[DockerPhp service]
-  Res[Resources]
-  Req[Requests]
-  Conn[DockerConnector]
-  Engine[Docker Engine]
-  Facade --> Service
-  Service --> Res
-  Res --> Req
-  Req --> Conn
-  Conn --> Engine
-```
 
 Livewire components use the same `DockerPhp` service and resources to drive the UI.
 
