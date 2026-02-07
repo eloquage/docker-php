@@ -2,6 +2,7 @@
     "name": "eloquage/docker-php",
     "description": "Docker Engine API client for Laravel with a built-in Livewire management UI. Connect via Unix socket, TCP, or TLS. Manage containers, images, networks, volumes, and Swarm from code or the included Flux UI.",
     "license": "MIT",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Miguel Enes",
