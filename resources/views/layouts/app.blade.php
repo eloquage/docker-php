@@ -15,7 +15,6 @@
             theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
         };
     </script>
-    @livewireStyles
 </head>
 <body class="min-h-screen bg-zinc-50 dark:bg-zinc-950 font-sans antialiased">
     <div class="flex min-h-screen">
@@ -173,6 +172,5 @@
     </div>
     @include('docker-php::partials.action-overlay')
     @fluxScripts
-    @livewireScripts
 </body>
 </html>

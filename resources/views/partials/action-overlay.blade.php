@@ -52,14 +52,11 @@ document.addEventListener('livewire:init', function () {
         'searchDockerHub', 'updatedSearchHubTerm'
     ];
 
-    function shouldShowOverlay(commit) {
-        if (!commit || !commit.calls || commit.calls.length === 0) return false;
-        const methods = commit.calls.map(c => c.method);
-        return !methods.every(m => SKIP_METHODS.includes(m));
-    }
+    window.Livewire.hook('message', ({ component, message, succeed, fail }) => {
+        const calls = message?.calls ?? [];
+        const methods = calls.map(c => c.method);
+        if (methods.length === 0 || methods.every(m => SKIP_METHODS.includes(m))) return;
 
-    window.Livewire.hook('commit', ({ commit, succeed, fail }) => {
-        if (!shouldShowOverlay(commit)) return;
         window.dispatchEvent(new CustomEvent('docker-action-loading-start'));
         succeed(() => { window.dispatchEvent(new CustomEvent('docker-action-loading-stop')); });
         fail(() => { window.dispatchEvent(new CustomEvent('docker-action-loading-stop')); });
