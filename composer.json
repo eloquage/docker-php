@@ -1,0 +1,53 @@
+{
+    "name": "eloquage/docker-php",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "homepage": "https://github.com/eloquage/docker-php",
+    "keywords": ["Laravel", "DockerPhp"],
+    "require": {
+        "illuminate/support": "^12",
+        "saloonphp/cache-plugin": "^3.0",
+        "saloonphp/laravel-plugin": "^3.0",
+        "saloonphp/saloon": "^3.14",
+        "livewire/livewire": "^3.7",
+        "livewire/flux": "^2.0"
+    },
+    "require-dev": {
+        "jonpurvis/lawman": "^4.0",
+        "orchestra/testbench": "^10",
+        "pestphp/pest": "^3",
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eloquage\\DockerPhp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eloquage\\DockerPhp\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Eloquage\\DockerPhp\\DockerPhpServiceProvider"
+            ],
+            "aliases": {
+                "DockerPhp": "Eloquage\\DockerPhp\\Facades\\DockerPhp"
+            }
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
