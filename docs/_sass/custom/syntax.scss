@@ -1,0 +1,162 @@
+// Vibrant syntax highlighting (Tokyo Night / One Dark inspired)
+// Targets Rouge-generated spans inside .highlight
+
+.highlight {
+  pre {
+    background: var(--code-background-color) !important;
+    color: #e2e8f0;
+  }
+
+  // Keywords
+  .k,
+  .kd,
+  .kn,
+  .kp,
+  .kr,
+  .kt {
+    color: #c084fc; // violet-400
+  }
+
+  .kc {
+    color: #a78bfa; // violet-500
+  }
+
+  // Strings
+  .s,
+  .s1,
+  .s2,
+  .sb,
+  .sc,
+  .sd,
+  .sx {
+    color: #86efac; // green-300
+  }
+
+  .se,
+  .si {
+    color: #4ade80; // green-400
+  }
+
+  .sr {
+    color: #22d3ee; // cyan-400
+  }
+
+  .ss {
+    color: #f472b6; // pink-400
+  }
+
+  // Comments
+  .c,
+  .c1,
+  .cm,
+  .cp,
+  .cs {
+    color: #64748b; // slate-500
+  }
+
+  // Functions
+  .nf {
+    color: #7dd3fc; // sky-300
+  }
+
+  // Builtins
+  .nb {
+    color: #fdba74; // orange-300
+  }
+
+  // Classes
+  .nc {
+    color: #fcd34d; // amber-300
+  }
+
+  // Constants
+  .no {
+    color: #a78bfa; // violet-500
+  }
+
+  // Variables
+  .nv,
+  .vc,
+  .vg,
+  .vi {
+    color: #e2e8f0; // slate-200
+  }
+
+  // Names
+  .n,
+  .na,
+  .nd,
+  .ni,
+  .ne,
+  .nl,
+  .nn,
+  .nt,
+  .nx {
+    color: #e2e8f0;
+  }
+
+  .py {
+    color: #7dd3fc; // sky-300
+  }
+
+  .bp {
+    color: #c084fc; // violet-400
+  }
+
+  // Numbers
+  .m,
+  .mi,
+  .mf,
+  .mh,
+  .mo,
+  .mx,
+  .mb,
+  .il {
+    color: #fdba74; // orange-300
+  }
+
+  // Operators
+  .o,
+  .ow {
+    color: #94a3b8; // slate-400
+  }
+
+  // Punctuation
+  .p {
+    color: #94a3b8;
+  }
+
+  // Generic
+  .ge {
+    font-style: italic;
+  }
+
+  .gs {
+    font-weight: 600;
+  }
+
+  .go {
+    color: #64748b;
+  }
+
+  .gp {
+    color: #94a3b8;
+  }
+
+  .gt {
+    color: #f87171; // red-400
+  }
+
+  .gd {
+    color: #f87171;
+  }
+
+  .gi {
+    color: #86efac;
+  }
+
+  .gl {
+    color: var(--code-linenumber-color);
+    user-select: none;
+  }
+}

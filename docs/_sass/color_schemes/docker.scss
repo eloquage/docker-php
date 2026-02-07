@@ -1,18 +1,29 @@
 @use "sass:color";
 
+// Zinc palette (Tailwind zinc, blue-tinted neutrals)
+$grey-dk-000: #09090b;
+$grey-dk-100: #18181b;
+$grey-dk-200: #27272a;
+$grey-dk-250: #3f3f46;
+$grey-dk-300: #18181b;
+$grey-lt-000: #fafafa;
+$grey-lt-100: #f4f4f5;
+$grey-lt-200: #e4e4e7;
+$grey-lt-300: #d4d4d8;
+
 $color-scheme: docker;
 $body-background-color: $grey-dk-300;
 $body-heading-color: $grey-lt-000;
 $body-text-color: $grey-lt-300;
 $link-color: #0ea5e9;
-$nav-child-link-color: $grey-dk-000;
-$sidebar-color: $grey-dk-300;
+$nav-child-link-color: $grey-lt-300;
+$sidebar-color: $grey-dk-100;
 $base-button-color: $grey-dk-250;
 $btn-primary-color: #0ea5e9;
-$code-background-color: #27272a;
-$code-linenumber-color: #e6edf3;
+$code-background-color: $grey-dk-200;
+$code-linenumber-color: #71717a;
 $feedback-color: color.adjust($sidebar-color, $lightness: -3%);
-$table-background-color: $grey-dk-250;
-$search-background-color: $grey-dk-250;
+$table-background-color: $grey-dk-200;
+$search-background-color: $grey-dk-200;
 $search-result-preview-color: $grey-lt-300;
-$border-color: $grey-dk-200;
+$border-color: $grey-dk-250;

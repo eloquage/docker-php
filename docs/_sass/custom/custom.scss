@@ -1,42 +1,103 @@
+// Typography: Inter (UI) + JetBrains Mono (code)
+body,
+.main-content {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+code,
+kbd,
+pre,
+.highlight {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+// Syntax highlighting (vibrant theme)
+@import "custom/syntax";
+
+// Hero: modern gradient and spacing
 .hero {
-  padding: 3rem 0;
+  padding: 4rem 1.5rem;
   text-align: center;
-  background: linear-gradient(180deg, var(--body-background-color) 0%, var(--sidebar-color) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--body-background-color) 0%,
+    var(--sidebar-color) 100%
+  );
+  border-bottom: 1px solid var(--border-color);
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   opacity: 0.9;
   margin-bottom: 2rem;
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+// Feature grid: Flux-style cards
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
   margin: 2rem 0;
 }
 
 .feature-card {
-  padding: 1.25rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   background: var(--table-background-color);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 1px var(--link-color);
 }
 
 .feature-card strong {
   display: block;
   margin-bottom: 0.25rem;
   color: var(--body-heading-color);
+  font-weight: 600;
 }
 
-.badge-get { background: #15803d; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
-.badge-post { background: #1d4ed8; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
-.badge-delete { background: #b91c1c; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
-.badge-put { background: #c2410c; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
+// HTTP method badges: flat, modern
+.badge-get,
+.badge-post,
+.badge-delete,
+.badge-put {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+}
+
+.badge-get {
+  background: #166534;
+  color: #dcfce7;
+}
+
+.badge-post {
+  background: #1e40af;
+  color: #dbeafe;
+}
+
+.badge-delete {
+  background: #991b1b;
+  color: #fee2e2;
+}
+
+.badge-put {
+  background: #9a3412;
+  color: #ffedd5;
+}
