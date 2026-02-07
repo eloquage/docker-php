@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Eloquage\DockerPhp\Connectors\DockerConnector;
-use Eloquage\DockerPhp\Requests\Images\CreateImageRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 

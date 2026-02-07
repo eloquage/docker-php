@@ -32,7 +32,8 @@ class PluginList extends Component
         $this->error = null;
         try {
             $response = $this->docker->plugins()->list(null);
-            $this->plugins = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->plugins = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

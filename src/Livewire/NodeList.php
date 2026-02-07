@@ -52,7 +52,8 @@ class NodeList extends Component
         }
         try {
             $response = $this->docker->nodes()->list(null);
-            $this->nodes = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->nodes = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

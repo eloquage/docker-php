@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40" aria-hidden="true">
+  <defs>
+    <linearGradient id="whale" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Simplified whale / container stack -->
+  <path fill="url(#whale)" d="M8 28h12v-6H8c-1 0-2 .5-2 2v2c0 1.5 1 2 2 2zm0-10h12V12H8C7 12 6 12.5 6 14v2c0 1.5 1 2 2 2zm14-8v22h4V10h-4zm-2 2H8C6.5 12 6 11 6 10V8c0-1.5.5-2 2-2h12v4z"/>
+  <rect x="24" y="14" width="4" height="4" rx="1" fill="url(#whale)" opacity="0.8"/>
+  <rect x="24" y="20" width="4" height="4" rx="1" fill="url(#whale)" opacity="0.8"/>
+  <text x="36" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="currentColor">Docker PHP</text>
+</svg>

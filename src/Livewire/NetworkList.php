@@ -70,7 +70,8 @@ class NetworkList extends Component
         $this->error = null;
         try {
             $response = $this->docker->networks()->list(null);
-            $this->networks = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->networks = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

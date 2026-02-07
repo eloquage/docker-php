@@ -171,6 +171,7 @@
             @endif
         </main>
     </div>
+    @include('docker-php::partials.action-overlay')
     @fluxScripts
     @livewireScripts
 </body>

@@ -64,7 +64,8 @@ class ConfigList extends Component
         }
         try {
             $response = $this->docker->configs()->list(null);
-            $this->configs = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->configs = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

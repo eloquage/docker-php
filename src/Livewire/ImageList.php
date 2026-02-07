@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Eloquage\DockerPhp\Livewire;
 
 use Eloquage\DockerPhp\DockerPhp;
+use Illuminate\Support\Facades\Http;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -31,6 +32,9 @@ class ImageList extends Component
     public string $searchHubTerm = '';
 
     public array $searchHubResults = [];
+
+    /** @var array<string, array<int, string>> */
+    public array $searchHubTags = [];
 
     public bool $showTagModal = false;
 
@@ -67,7 +71,8 @@ class ImageList extends Component
         $this->error = null;
         try {
             $response = $this->docker->images()->list(null, true, null);
-            $this->images = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->images = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }
@@ -95,6 +100,8 @@ class ImageList extends Component
 
     public function openPullModal(): void
     {
+        $this->showSearchModal = false;
+        $this->showTagModal = false;
         $this->showPullModal = true;
         $this->pullImage = '';
         $this->pullTag = 'latest';
@@ -108,6 +115,8 @@ class ImageList extends Component
 
     public function openSearchModal(): void
     {
+        $this->showPullModal = false;
+        $this->showTagModal = false;
         $this->showSearchModal = true;
         $this->searchHubTerm = '';
         $this->searchHubResults = [];
@@ -118,6 +127,16 @@ class ImageList extends Component
         $this->showSearchModal = false;
     }
 
+    public function updatedSearchHubTerm(): void
+    {
+        if (strlen($this->searchHubTerm) < 3) {
+            $this->searchHubResults = [];
+
+            return;
+        }
+        $this->searchDockerHub();
+    }
+
     public function searchDockerHub(): void
     {
         $this->error = null;
@@ -126,9 +145,55 @@ class ImageList extends Component
         }
         try {
             $response = $this->docker->images()->search($this->searchHubTerm, 25, null);
-            $this->searchHubResults = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->searchHubResults = is_array($body) && array_is_list($body) ? $body : [];
+            $this->fetchAllHubTags();
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
+        }
+    }
+
+    /**
+     * Fetch tags for all search results in parallel using Http::pool().
+     */
+    protected function fetchAllHubTags(): void
+    {
+        $this->searchHubTags = [];
+
+        $names = array_filter(array_map(
+            fn (array $r): string => $r['name'] ?? '',
+            $this->searchHubResults
+        ));
+
+        if (empty($names)) {
+            return;
+        }
+
+        $responses = Http::pool(function (\Illuminate\Http\Client\Pool $pool) use ($names): array {
+            $requests = [];
+            foreach ($names as $name) {
+                $namespace = str_contains($name, '/') ? $name : "library/{$name}";
+                $requests[$name] = $pool->as($name)->timeout(5)->get(
+                    "https://hub.docker.com/v2/repositories/{$namespace}/tags/",
+                    ['page_size' => 50, 'ordering' => 'last_updated']
+                );
+            }
+
+            return $requests;
+        });
+
+        foreach ($names as $name) {
+            try {
+                $res = $responses[$name] ?? null;
+                if ($res && $res->successful()) {
+                    $results = $res->json('results') ?? [];
+                    $this->searchHubTags[$name] = array_map(fn (array $tag): string => $tag['name'], $results);
+                } else {
+                    $this->searchHubTags[$name] = ['latest'];
+                }
+            } catch (\Throwable) {
+                $this->searchHubTags[$name] = ['latest'];
+            }
         }
     }
 
@@ -143,6 +208,8 @@ class ImageList extends Component
 
     public function openTagModal(string $imageId): void
     {
+        $this->showPullModal = false;
+        $this->showSearchModal = false;
         $this->showTagModal = true;
         $this->tagImageId = $imageId;
         $this->tagRepo = '';

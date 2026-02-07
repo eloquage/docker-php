@@ -34,7 +34,8 @@ class ContainerList extends Component
         $this->error = null;
         try {
             $response = $this->docker->containers()->list(true, null, true, null);
-            $this->containers = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->containers = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }
@@ -46,12 +47,10 @@ class ContainerList extends Component
             return $this->containers;
         }
         $term = strtolower($this->search);
-
         return array_values(array_filter($this->containers, function (array $c) use ($term) {
             $names = implode(' ', $c['Names'] ?? []);
             $id = $c['Id'] ?? '';
             $image = $c['Image'] ?? '';
-
             return str_contains(strtolower($names), $term) || str_contains(strtolower($id), $term) || str_contains(strtolower($image), $term);
         }));
     }

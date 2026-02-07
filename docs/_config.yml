@@ -1,0 +1,38 @@
+title: Docker PHP
+description: Docker Engine API client for Laravel with a built-in Livewire management UI
+theme: just-the-docs
+url: "https://eloquage.github.io"
+baseurl: "/docker-php"
+
+color_scheme: docker
+
+logo: "/docker-php/assets/images/logo.svg"
+
+search_enabled: true
+search_heading: true
+
+mermaid:
+  version: "9.4.3"
+
+aux_links:
+  "Repository": "https://github.com/eloquage/docker-php"
+aux_links_new_tab: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+callouts:
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
+  important:
+    title: Important
+    color: blue
+  tip:
+    title: Tip
+    color: green
+
+nav_order: 0

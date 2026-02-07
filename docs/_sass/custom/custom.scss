@@ -1,0 +1,45 @@
+---
+---
+
+.hero {
+  padding: 3rem 0;
+  text-align: center;
+  background: linear-gradient(180deg, var(--body-background-color) 0%, var(--sidebar-color) 100%);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--table-background-color);
+}
+
+.feature-card strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--body-heading-color);
+}
+
+.badge-get { background: #15803d; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
+.badge-post { background: #1d4ed8; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
+.badge-delete { background: #b91c1c; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }
+.badge-put { background: #c2410c; color: #fff; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; }

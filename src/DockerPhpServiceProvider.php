@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Eloquage\DockerPhp;
 
 use Eloquage\DockerPhp\Connectors\DockerConnector;
+use Eloquage\DockerPhp\DockerPhp;
 use Eloquage\DockerPhp\Livewire\ConfigList;
 use Eloquage\DockerPhp\Livewire\ContainerInspect;
 use Eloquage\DockerPhp\Livewire\ContainerList;
 use Eloquage\DockerPhp\Livewire\ContainerLogs;
 use Eloquage\DockerPhp\Livewire\Dashboard;
+use Eloquage\DockerPhp\Livewire\ImageInspect;
 use Eloquage\DockerPhp\Livewire\ImageList;
 use Eloquage\DockerPhp\Livewire\NetworkList;
 use Eloquage\DockerPhp\Livewire\NodeList;

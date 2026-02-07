@@ -47,7 +47,8 @@ class VolumeList extends Component
         try {
             $response = $this->docker->volumes()->list(null);
             $data = $response->successful() ? $response->json() : [];
-            $this->volumes = $data['Volumes'] ?? [];
+            $raw = $data['Volumes'] ?? [];
+            $this->volumes = is_array($raw) && array_is_list($raw) ? $raw : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

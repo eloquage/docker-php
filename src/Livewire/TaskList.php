@@ -50,7 +50,8 @@ class TaskList extends Component
         }
         try {
             $response = $this->docker->tasks()->list(null);
-            $this->tasks = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->tasks = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

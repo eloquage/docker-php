@@ -86,7 +86,8 @@ class ServiceList extends Component
         }
         try {
             $response = $this->docker->services()->list(null, null);
-            $this->services = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->services = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }

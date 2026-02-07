@@ -68,7 +68,8 @@ class SecretList extends Component
         }
         try {
             $response = $this->docker->secrets()->list(null);
-            $this->secrets = $response->successful() ? $response->json() : [];
+            $body = $response->successful() ? $response->json() : [];
+            $this->secrets = is_array($body) && array_is_list($body) ? $body : [];
         } catch (\Throwable $e) {
             $this->error = $e->getMessage();
         }
