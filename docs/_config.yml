@@ -6,6 +6,14 @@ baseurl: "/docker-php"
 
 color_scheme: docker
 
+# Silence Sass deprecation warnings from the just-the-docs theme (Dart Sass 3.0)
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+
 logo: "/docker-php/assets/images/logo.svg"
 
 search_enabled: true
