@@ -15,14 +15,29 @@ Connect to your Docker daemon via Unix socket, TCP, or TLS. Use the fluent API i
 
 ## Features
 
-| **Full API coverage** | 100+ Docker Engine API v1.53 endpoints: containers, images, networks, volumes, swarm, services, nodes, tasks, secrets, configs, plugins, build, exec, distribution. |
-| **Livewire UI** | 15 management components with Flux UI styling and dark mode: dashboard, containers, images, networks, volumes, swarm, services, nodes, tasks, secrets, configs, plugins. |
-| **Real-time streaming** | Image pull progress via Server-Sent Events; container logs and stats; multiplexed stream decoding. |
-| **Type-safe DTOs** | Data Transfer Objects for list and inspect responses: `ImageSummary`, `ContainerSummary`, `SystemInfo`, `DiskUsage`, and more. |
-| **Selective caching** | Saloon cache plugin for read-only requests (info, version, image inspect/history) with configurable TTLs. |
-| **Connection flexibility** | Unix socket (default), TCP, or TLS with certificate support. Configurable timeouts and headers. |
-| **Docker Swarm** | Initialize, join, leave; manage services, nodes, tasks, secrets, and configs from the UI or API. |
-| **Architecture tested** | Lawman expectations for Saloon connector and requests; Pest for feature and unit tests. |
+### 🔌 Full API Coverage
+100+ endpoints across the Docker Engine API v1.53 — containers, images, networks, volumes, Swarm, services, nodes, tasks, secrets, configs, plugins, build, exec, and distribution.
+
+### 🖥️ Built-in Livewire UI
+15 ready-to-use management components styled with Flux UI and dark mode support. Browse your dashboard, containers, images, networks, volumes, and the full Swarm surface — all from the browser.
+
+### ⚡ Real-time Streaming
+Watch image pulls with live progress bars powered by Server-Sent Events. Stream container logs and stats with multiplexed stream decoding built in.
+
+### 🧩 Type-safe DTOs
+First-class Data Transfer Objects for list and inspect responses — `ImageSummary`, `ContainerSummary`, `SystemInfo`, `DiskUsage`, and more — so you never work with raw arrays.
+
+### 🗄️ Selective Caching
+Saloon cache plugin for read-only requests (info, version, image inspect/history) with configurable TTLs. Keep things fast without stale data.
+
+### 🔗 Flexible Connections
+Connect via Unix socket (default), TCP, or TLS with full certificate support. Configurable timeouts and custom headers out of the box.
+
+### 🐝 Docker Swarm Ready
+Initialize, join, and leave clusters. Manage services, nodes, tasks, secrets, and configs from the UI or programmatically through the API.
+
+### ✅ Thoroughly Tested
+Lawman architectural expectations for the Saloon connector and requests. Pest-powered feature and unit tests with full mock support — no daemon required.
 
 ---
 
