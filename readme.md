@@ -2,7 +2,7 @@
 
 ![Docker PHP package banner](art/banner.png)
 
-[![PHP 8.4][ico-php]][link-php]
+[![PHP 8.3+][ico-php]][link-php]
 [![Laravel 12][ico-laravel]][link-laravel]
 [![Tests][ico-tests]][link-tests]
 [![License][ico-license]][link-license]
@@ -43,7 +43,7 @@ Pest feature and unit tests use Saloon's MockClient, so they run without a Docke
 
 ## Requirements
 
-- PHP version supported by Laravel 12 (PHP 8.2 or newer)
+- PHP 8.3 or newer
 - Laravel 12
 - Livewire 4 and Flux 2
 - A Docker Engine daemon for real API operations; a daemon is not needed to install the package or run its mocked tests
@@ -160,7 +160,7 @@ MIT. See the [license file](license.md) for more information.
 
 ---
 
-[ico-php]: https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php
+[ico-php]: https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php
 [ico-laravel]: https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel
 [ico-tests]: https://github.com/eloquage/docker-php/actions/workflows/tests.yml/badge.svg?style=flat-square
 [ico-license]: https://img.shields.io/packagist/l/eloquage/docker-php?style=flat-square
