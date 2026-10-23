@@ -1,5 +1,7 @@
 # Docker PHP
 
+![Docker PHP package banner](art/banner.png)
+
 [![PHP 8.4][ico-php]][link-php]
 [![Laravel 12][ico-laravel]][link-laravel]
 [![Tests][ico-tests]][link-tests]
@@ -7,7 +9,7 @@
 [![Packagist][ico-packagist]][link-packagist]
 [![Downloads][ico-downloads]][link-downloads]
 
-**A comprehensive Docker Engine API client for Laravel with a built-in Livewire management UI.**
+**A Docker Engine API client for Laravel with a built-in Livewire management UI.**
 
 Connect to your Docker daemon via Unix socket, TCP, or TLS. Use the fluent API in code or the included UI to manage containers, images, networks, volumes, and Swarm.
 
@@ -15,11 +17,11 @@ Connect to your Docker daemon via Unix socket, TCP, or TLS. Use the fluent API i
 
 ## Features
 
-### 🔌 Full API Coverage
-100+ endpoints across the Docker Engine API v1.53 — containers, images, networks, volumes, Swarm, services, nodes, tasks, secrets, configs, plugins, build, exec, and distribution.
+### 🔌 Docker Engine API
+Resources cover containers, images, networks, volumes, Swarm, services, nodes, tasks, secrets, configs, plugins, builds, exec, and distribution. The default API version is v1.53.
 
 ### 🖥️ Built-in Livewire UI
-15 ready-to-use management components styled with Flux UI and dark mode support. Browse your dashboard, containers, images, networks, volumes, and the full Swarm surface — all from the browser.
+The included dashboard and management screens use Flux UI and support dark mode. The UI is served at `/docker` by default and can be disabled or moved with configuration.
 
 ### ⚡ Real-time Streaming
 Watch image pulls with live progress bars powered by Server-Sent Events. Stream container logs and stats with multiplexed stream decoding built in.
@@ -36,8 +38,15 @@ Connect via Unix socket (default), TCP, or TLS with full certificate support. Co
 ### 🐝 Docker Swarm Ready
 Initialize, join, and leave clusters. Manage services, nodes, tasks, secrets, and configs from the UI or programmatically through the API.
 
-### ✅ Thoroughly Tested
-Lawman architectural expectations for the Saloon connector and requests. Pest-powered feature and unit tests with full mock support — no daemon required.
+### ✅ Automated tests
+Pest feature and unit tests use Saloon's MockClient, so they run without a Docker daemon. Lawman checks the connector and request architecture.
+
+## Requirements
+
+- PHP version supported by Laravel 12 (PHP 8.2 or newer)
+- Laravel 12
+- Livewire 4 and Flux 2
+- A Docker Engine daemon for real API operations; a daemon is not needed to install the package or run its mocked tests
 
 ---
 
